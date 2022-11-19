@@ -9,9 +9,9 @@ public class l01LinkedListBasics {
         }
     }
 
-    public static Node head;
-    public static Node tail;
-    public static int size; // by default it'll be 0... inc while adding & dec while removing
+    public static Node head; // by default i'll be null
+    public static Node tail; // by default i'll be null
+    public static int size;  // by default it'll be 0... inc while adding & dec while removing
 
     public void addFirst(int data) { // O(1)
         Node newNode = new Node(data);
@@ -97,7 +97,7 @@ public class l01LinkedListBasics {
         return val;
     }
 
-    public void printLinkedList(Node head){ // O(n)
+    public void printLinkedList(Node head){ // O(n)  
         if (head == null){
             System.out.println("null");
         }
@@ -184,6 +184,45 @@ public class l01LinkedListBasics {
         return;
     }
 
+    public static Node findMid(Node head){ // helper func for palindrome
+        Node slow = head; // +1
+        Node fast = head; // +2
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow; //mid
+    }
+
+    public boolean isPalindrome(Node head){
+        if (head == null || head.next == null){
+            return true;
+        }
+        // 1. find mid
+        Node mid = findMid(head);
+        // 2. rotate 2nd half of linked list
+        Node prev = null;
+        Node curr = mid;
+        Node next;
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        // 3. Compare 1st half and 2nd half
+        Node left = head;
+        Node right = tail;
+        while (right != null){
+            if (left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         l01LinkedListBasics ll = new l01LinkedListBasics();
 
@@ -221,5 +260,12 @@ public class l01LinkedListBasics {
         // delete Nth node from behind
         ll.deleteNthNodeFromEnd(2);
         ll.printLinkedList(head);
+
+        ll.addFirst(1);
+        ll.addFirst(2);
+        ll.addFirst(2);
+        ll.addFirst(1);
+        ll.printLinkedList(head);
+        System.out.println(ll.isPalindrome(head));
     }
 }
