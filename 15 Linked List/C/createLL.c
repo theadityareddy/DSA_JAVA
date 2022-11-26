@@ -34,7 +34,7 @@ void printLL(node *temp){
         temp = temp->next;
     }
     printf("null \n");
-}
+} 
 
 int main(){
     int n;
