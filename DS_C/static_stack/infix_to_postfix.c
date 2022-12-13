@@ -28,6 +28,7 @@ int priority(char ch)
         return 2;
     if(ch=='^' || ch=='$')
         return 3;
+    return -1;
 }
 void intopost(char str1[], char str2[])
 {
