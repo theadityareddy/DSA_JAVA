@@ -97,5 +97,6 @@ int main(){
     char postfix[100];
     char infix[] = "a+b*(d-a*x)";
     infixToPostfix(infix, postfix);
+    printf("\n");
     return 0;
-}
+} 

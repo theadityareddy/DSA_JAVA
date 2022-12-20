@@ -53,8 +53,7 @@ void push(struct Stack* stack, char op)
 // the given character is operand
 int isOperand(char ch)
 {
-	return (ch >= 'a' && ch <= 'z')
-		|| (ch >= 'A' && ch <= 'Z');
+	return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }
 
 // A utility function to return
