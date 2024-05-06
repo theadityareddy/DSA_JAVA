@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class l08BSTtoBalancedBST {
     static class Node {
         int data;
@@ -31,24 +29,24 @@ public class l08BSTtoBalancedBST {
         getInorder(root.right, inorder);
     }
 
-    public static Node createBST(ArrayList<Integer> inorder, int start, int end){
+    public static Node array2BST(ArrayList<Integer> inorder, int start, int end){
         if (start > end){
             return null;
         }
         int mid = (start + end)/2;
         Node root = new Node(inorder.get(mid));
-        root.left = createBST(inorder, start, mid-1);
-        root.right = createBST(inorder, mid+1, end);
+        root.left = array2BST(inorder, start, mid-1);
+        root.right = array2BST(inorder, mid+1, end);
         return root;
     }
 
     public static Node balancedBST(Node root){
-        // inorder seq
+        // inorder seq 
         ArrayList <Integer> inorder = new ArrayList<>();
         getInorder(root, inorder);
 
         // sorted inorder -> BST
-        root = createBST(inorder, 0, inorder.size()-1);
+        root = array2BST(inorder, 0, inorder.size()-1);
         return root;
     }
 
@@ -77,7 +75,7 @@ public class l08BSTtoBalancedBST {
                    /   \
                   5     11
                  / \    / \
-                3   6  10 12   
+                3   6  10 12
             expected BST
          */
 
