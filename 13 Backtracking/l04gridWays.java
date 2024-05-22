@@ -1,5 +1,6 @@
 public class l04gridWays {
     static int count = 0;
+
     public static void main(String[] args) {
         int n = 3;
         int m = 3;
@@ -9,17 +10,17 @@ public class l04gridWays {
     }
 
     private static void gridWays(int[][] grid, int n, int m) {
-        // base case 
-        if (n==grid.length-1 && m==grid.length-1){
-            count ++;
+        // base case
+        if (n == grid.length - 1 && m == grid.length - 1) {
+            count++;
             return;
         }
         // recurssion
-        if (m<grid.length){
-            gridWays(grid, n, m+1); // right
+        if (m < grid.length) {
+            gridWays(grid, n, m + 1); // right
         }
-        if (n<grid.length){
-            gridWays(grid, n+1, m); // down
+        if (n < grid.length) {
+            gridWays(grid, n + 1, m); // down
         }
     }
 }
