@@ -1,9 +1,9 @@
 public class l03isCircularLL {
-    public static class Node{
+    public static class Node {
         int data;
         Node next;
 
-        public Node(int data){
+        public Node(int data) {
             this.data = data;
             this.next = null;
         }
@@ -11,13 +11,15 @@ public class l03isCircularLL {
 
     public static Node head;
 
-    public static boolean isCircularLL(Node head){
+    // Floyd's Cycle Finding Algorithm
+    // using Slow-Fast Approach
+    public static boolean isCircularLL(Node head) {
         Node slow = head;
         Node fast = head;
-        while (fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast){
+            if (slow == fast) {
                 return true;
             }
         }

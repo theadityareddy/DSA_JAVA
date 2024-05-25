@@ -1,5 +1,5 @@
 public class l02checkLLisPalindrome {
-    public static class Node{
+    public static class Node {
         int data;
         Node next;
 
@@ -12,10 +12,10 @@ public class l02checkLLisPalindrome {
     public static Node head;
     public static Node tail;
 
-    public void addFirst(int data){
+    public void addFirst(int data) {
         Node newNode = new Node(data);
 
-        if (head == null){
+        if (head == null) {
             head = tail = newNode;
         } else {
             newNode.next = head;
@@ -23,8 +23,8 @@ public class l02checkLLisPalindrome {
         }
     }
 
-    public void printLinkedList(Node temp){
-        if (temp == null){
+    public void printLinkedList(Node temp) {
+        if (temp == null) {
             System.out.print("null");
         }
 
@@ -35,27 +35,28 @@ public class l02checkLLisPalindrome {
         System.out.println();
     }
 
-    public static Node findMid(Node head){ // helper func for palindrome - slowFastApproach
+    public static Node findMid(Node head) { // helper func for palindrome - slowFastApproach
         Node slow = head; // +1
         Node fast = head; // +2
-        while (fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return slow; //mid
+        return slow; // mid
     }
 
-    public static boolean isPalindrome(Node head){
-        if (head == null || head.next == null){
+    public static boolean isPalindrome(Node head) {
+        if (head == null || head.next == null) {
             return true;
         }
         // 1. find mid
         Node mid = findMid(head);
+
         // 2. rotate 2nd half of linked list
         Node prev = null;
         Node curr = mid;
         Node next;
-        while (curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
@@ -64,8 +65,8 @@ public class l02checkLLisPalindrome {
         // 3. Compare 1st half and 2nd half
         Node left = head;
         Node right = tail;
-        while (right != null){
-            if (left.data != right.data){
+        while (right != null) {
+            if (left.data != right.data) {
                 return false;
             }
             left = left.next;

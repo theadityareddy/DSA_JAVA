@@ -3,7 +3,7 @@ public class l06zigZagMergingLL {
         int data;
         Node next;
 
-        public Node(int data){
+        public Node(int data) {
             this.data = data;
             this.next = null;
         }
@@ -12,51 +12,53 @@ public class l06zigZagMergingLL {
     public static Node head;
     public static Node tail;
 
-    public static void alternateMerge(Node head){
-        // find mid
+    public static void alternateMerge(Node head) {
+        // 1. find mid
         Node slow = head;
         Node fast = head;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         Node mid = slow;
 
-        // reverse LL
+        // 2. reverse LL
         Node prev = null;
         Node curr = mid;
         Node next;
-        while (curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
         }
-        mid.next = null; 
+        mid.next = null;
 
-        // zig-zag : alternate LL
+        // 3. zig-zag : alternate LL
         Node left = head;
         Node right = tail;
         Node nextLeft, nextRight;
-        
-        while(left != null && right != null){
+
+        while (left != null && right != null) {
+            // zig-zag
             nextLeft = left.next;
             left.next = right;
             nextRight = right.next;
             right.next = nextLeft;
 
+            // update head
             left = nextLeft;
             right = nextRight;
-        } 
+        }
     }
- 
-    public static void printLinkedList(Node head) {  
-        if (head == null){
+
+    public static void printLinkedList(Node head) {
+        if (head == null) {
             System.out.println("null");
         }
 
         Node temp = head;
-        while (temp != null){
+        while (temp != null) {
             System.out.print(temp.data + " -> ");
             temp = temp.next;
         }

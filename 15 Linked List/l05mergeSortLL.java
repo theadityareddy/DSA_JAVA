@@ -26,14 +26,17 @@ public class l05mergeSortLL {
 
     public static Node mergeSort(Node head) {
         // base case
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
 
         // find mid
         Node slow = head;
         Node fast = head.next;
-        while(fast != null && fast.next != null){
+        // so that in even array list we get 1st mid (last part of first half) and not
+        // 2nd mid (first part of second half)
+
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next;
         }
@@ -48,14 +51,14 @@ public class l05mergeSortLL {
         return merge(mergeSort(leftHalf), mergeSort(rightHalf));
     }
 
-    private static Node merge (Node leftHalf, Node rightHalf) {
+    private static Node merge(Node leftHalf, Node rightHalf) {
         // temp LL
         Node mergedLL = new Node(-1);
         Node temp = mergedLL;
 
         // sort the two halves
         while (leftHalf != null && rightHalf != null) {
-            if(leftHalf.data <= rightHalf.data) {
+            if (leftHalf.data <= rightHalf.data) {
                 temp.next = leftHalf;
                 leftHalf = leftHalf.next;
                 temp = temp.next;
@@ -82,13 +85,13 @@ public class l05mergeSortLL {
         return mergedLL.next;
     }
 
-    public static void printLinkedList(Node head) {  
-        if (head == null){
+    public static void printLinkedList(Node head) {
+        if (head == null) {
             System.out.println("null");
         }
 
         Node temp = head;
-        while (temp != null){
+        while (temp != null) {
             System.out.print(temp.data + " -> ");
             temp = temp.next;
         }

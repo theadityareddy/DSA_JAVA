@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class l01printReverse {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
@@ -9,7 +10,7 @@ public class l01printReverse {
         list.add(4);
         list.add(5);
 
-        for (int i = list.size()-1; i>=0 ; i--){
+        for (int i = list.size() - 1; i >= 0; i--) {
             System.out.print(list.get(i) + " ");
         }
         System.out.println();

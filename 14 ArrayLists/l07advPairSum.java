@@ -15,30 +15,28 @@ public class l07advPairSum {
     }
 
     public static boolean advPairSum(ArrayList<Integer> list, int target) {
-        int breakpoint = -1; //initalizing with invalid index
+        int breakpoint = -1; // initalizing with invalid index
         int n = list.size();
 
         // find breakpoint
-        for (int i=0; i<list.size(); i++){
-            if (list.get(i) > list.get(i+1)){ // breakPoint
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > list.get(i + 1)) { // breakPoint
                 breakpoint = i;
                 break;
             }
         }
 
         // initalizing pointers for a ROTATED SORTED Array
-        int lp = breakpoint+1; // smallest
+        int lp = (breakpoint + 1) % n; // smallest - Use modulo (WHY -> What if array ISNT SORTED!?)
         int rp = breakpoint; // largest
 
-        while (lp != rp){
-            if (list.get(lp)+list.get(rp) == target){
+        while (lp != rp) {
+            if (list.get(lp) + list.get(rp) == target) {
                 return true;
-            } 
-            else if (list.get(lp)+list.get(rp) < target){
-                lp = (lp+1) % n; //MODULO ARITHMATIC (using mod operator properties)
-            }
-            else { 
-                rp = (rp+n-1) % n; //MODULO ARITHMATIC (using mod operator properties)
+            } else if (list.get(lp) + list.get(rp) < target) {
+                lp = (lp + 1) % n; // MODULO ARITHMATIC (using mod operator properties)
+            } else {
+                rp = (rp + n - 1) % n; // MODULO ARITHMATIC (using mod operator properties)
             }
         }
 

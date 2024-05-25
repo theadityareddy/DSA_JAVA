@@ -11,7 +11,7 @@ public class l02findMax {
         list.add(4);
         list.add(7);
 
-        for (int i = 0; i<list.size() ; i++){
+        for (int i = 0; i < list.size(); i++) {
             max = Math.max(list.get(i), max);
         }
 
