@@ -1,20 +1,20 @@
 import java.util.*;
 
 public class l09duplicateParenthesis {
-    public static boolean isDuplicate(String str){
+    public static boolean isDuplicate(String str) {
         Stack<Character> s = new Stack<>();
 
-        for (int i=0; i<str.length(); i++){
+        for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
             // for closing
-            if(')' == ch){
+            if (')' == ch) {
                 int count = 0;
-                while('(' != s.peek()){
+                while ('(' != s.peek()) {
                     s.pop();
                     count++;
                 }
-                if(count<1){
+                if (count < 1) {
                     return true; // duplicate exists
                 } else {
                     s.pop();
@@ -26,6 +26,7 @@ public class l09duplicateParenthesis {
         }
         return false;
     }
+
     public static void main(String[] args) {
         String str = "(a+b)";
 
