@@ -1,19 +1,20 @@
 import java.util.*;
 
 public class l08queueReversal {
-    public static void reverseQueue(Queue<Integer> q){
+    public static void reverseQueue(Queue<Integer> q) {
         Stack<Integer> s = new Stack<>();
         // queue to stack
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             s.push(q.remove());
         }
         // stack to queue
-        while(!s.isEmpty()){
+        while (!s.isEmpty()) {
             q.add(s.pop());
         }
     }
+
     public static void main(String[] args) {
-        Queue <Integer> q = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
         q.add(1);
         q.add(2);
         q.add(3);
@@ -22,7 +23,7 @@ public class l08queueReversal {
 
         reverseQueue(q);
 
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             System.out.println(q.remove());
         }
     }
