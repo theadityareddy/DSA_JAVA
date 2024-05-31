@@ -2,13 +2,13 @@ import java.util.*;
 
 public class l07chocolaProblem {
     public static void main(String[] args) {
-        
-        // This Question is available on platform called SPOJ... 
+
+        // This Question is available on platform called SPOJ...
         // COCOLA PROBLEM (Hard)
 
         // n = 4, m = 6;
-        Integer costHor[] = {4, 1, 2}; // n-1
-        Integer costVer[] = {2, 1, 3, 1, 4}; // m-1
+        Integer costHor[] = { 4, 1, 2 }; // n-1
+        Integer costVer[] = { 2, 1, 3, 1, 4 }; // m-1
 
         // sort the costs in dec order
         Arrays.sort(costHor, Collections.reverseOrder());
@@ -18,8 +18,8 @@ public class l07chocolaProblem {
         int h = 0, v = 0; // pointers to traverse cost
         int cost = 0;
 
-        while (h < costHor.length && v < costVer.length){
-            if(costHor[h] >= costVer[v]){
+        while (h < costHor.length && v < costVer.length) {
+            if (costHor[h] >= costVer[v]) {
                 // horizontal cut
                 cost += vp * costHor[h];
                 hp++;
@@ -32,14 +32,14 @@ public class l07chocolaProblem {
             }
         }
 
-        while (h < costHor.length){
+        while (h < costHor.length) {
             // horizontal cut
             cost += vp * costHor[h];
             hp++;
             h++;
         }
 
-        while (v < costVer.length){
+        while (v < costVer.length) {
             // vertical cut
             cost += hp * costVer[v];
             vp++;
