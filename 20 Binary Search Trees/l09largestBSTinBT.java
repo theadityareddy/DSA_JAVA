@@ -45,19 +45,23 @@ public class l09largestBSTinBT {
 
         Info leftInfo = largestBST(root.left);
         Info rightInfo = largestBST(root.right);
+        
         int sz = leftInfo.size + rightInfo.size + 1;
         int min = Math.min(root.data, Math.min(leftInfo.min, rightInfo.min));
         int max = Math.max(root.data, Math.max(leftInfo.max, rightInfo.max));
 
+        // step 1 - return FALSE for these invalid conditions
         if(root.data <= leftInfo.max || root.data >= rightInfo.min) {
             return new Info(false, sz, max, min);
         }
         
+        // step 2 - return TRUE if left and right are valid (we already checked for current root node in step 1)
         if(leftInfo.isBST && rightInfo.isBST) {
             maxBST = Math.max(maxBST, sz);
             return new Info(true, sz, max, min);
         } 
 
+        // step 3 - if either one of left or right isn't valid then return FALSE
         return new Info(false, sz, max, min);
     }
     public static void main(String args[]) {
