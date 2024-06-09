@@ -1,18 +1,18 @@
 public class l14transformToSumTree {
-    static class Node{
+    static class Node {
         int data;
         Node left;
         Node right;
 
-        public Node (int data){
+        public Node(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
         }
     }
 
-    public static int transform(Node root){
-        if(root == null){
+    public static int transform(Node root) {
+        if (root == null) {
             return 0;
         }
 
@@ -33,8 +33,8 @@ public class l14transformToSumTree {
         return data;
     }
 
-    public static void preorderTraversal(Node root){
-        if(root == null){
+    public static void preorderTraversal(Node root) {
+        if (root == null) {
             return;
         }
         System.out.print(root.data + " ");
@@ -44,20 +44,20 @@ public class l14transformToSumTree {
 
     public static void main(String[] args) {
         /*
-                    1
-                   / \
-                  2   3
-                 / \ / \
-                4  5 6  7  
-                
-            expected output :
-                    27
-                   / \
-                  9   13
-                 / \ / \
-                0  0 0  0
-
-        */
+         * 1
+         * / \
+         * 2 3
+         * / \ / \
+         * 4 5 6 7
+         * 
+         * expected output :
+         * 27
+         * / \
+         * 9 13
+         * / \ / \
+         * 0 0 0 0
+         * 
+         */
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);

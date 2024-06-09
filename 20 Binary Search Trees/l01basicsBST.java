@@ -40,6 +40,7 @@ public class l01basicsBST {
         if (root.data == key){
             return true;
         }
+        
         if (root.data > key){
             return search(root.left, key);
         } else {

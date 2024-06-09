@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class l08BSTtoBalancedBST {
     static class Node {
         int data;
@@ -40,7 +42,7 @@ public class l08BSTtoBalancedBST {
         return root;
     }
 
-    public static Node balancedBST(Node root){
+    public static Node balancedBST(Node root){ // O(n)
         // inorder seq 
         ArrayList <Integer> inorder = new ArrayList<>();
         getInorder(root, inorder);

@@ -1,18 +1,18 @@
 public class l06V1diameterOfTree {
-    static class Node{
+    static class Node {
         int data;
         Node left;
         Node right;
 
-        Node (int data){
+        Node(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
         }
     }
 
-    public static int height(Node root){
-        if(root == null){
+    public static int height(Node root) {
+        if (root == null) {
             return 0;
         }
         int lh = height(root.left);
@@ -20,12 +20,13 @@ public class l06V1diameterOfTree {
         return Math.max(lh, rh) + 1;
     }
 
-    public static int diameter(Node root) {
-        if(root == null){
+    public static int diameter(Node root) { // O(n^2)
+        if (root == null) {
             return 0;
         }
         int leftDia = diameter(root.left);
         int rightDia = diameter(root.right);
+
         int leftHt = height(root.left);
         int rightHt = height(root.right);
 
@@ -35,15 +36,15 @@ public class l06V1diameterOfTree {
     }
 
     public static void main(String[] args) {
-         /*
-                     1
-                   /   \
-                  2     3
-                 / \   /  \
-                4   5 6    7  
-               /
-              8  
-        */
+        /*
+         * 1
+         * / \
+         * 2 3
+         * / \ / \
+         * 4 5 6 7
+         * /
+         * 8
+         */
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);

@@ -1,18 +1,18 @@
 public class l03heighOfTree {
-    static class Node{
+    static class Node {
         int data;
         Node left;
         Node right;
 
-        Node (int data){
+        Node(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
         }
     }
 
-    public static int height(Node root){
-        if(root == null){
+    public static int height(Node root) {
+        if (root == null) {
             return 0;
         }
         int lh = height(root.left);
@@ -21,13 +21,13 @@ public class l03heighOfTree {
     }
 
     public static void main(String[] args) {
-         /*
-                    1
-                   / \
-                  2   3
-                 / \   \
-                4   5   6  
-        */
+        /*
+         * 1
+         * / \
+         * 2 3
+         * / \ \
+         * 4 5 6
+         */
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);

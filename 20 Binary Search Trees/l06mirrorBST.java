@@ -32,7 +32,7 @@ public class l06mirrorBST {
         preorder(root.right);
     }
 
-    public static Node mirror(Node root){
+    public static Node mirror(Node root){ // O(n)
         if (root == null){
             return null;
         }

@@ -33,7 +33,7 @@ public class l04root2leafPaths {
         list.add(root.data);
 
         if (root.left == null && root.right == null){
-            printList(list);
+            printPath(list);
         }
 
         root2leafpaths(root.left, list);
@@ -41,7 +41,7 @@ public class l04root2leafPaths {
         list.remove(list.size() - 1);
     }
 
-    public static void printList(ArrayList <Integer> list){
+    public static void printPath(ArrayList <Integer> list){
         for (int i=0; i<list.size(); i++){
             System.out.print(list.get(i) + "->");
         }

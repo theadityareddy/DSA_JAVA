@@ -34,11 +34,11 @@ public class l03printInRange {
             printInRange(root.right, k1, k2);
         } 
         // Case 2 - Our range lies in left subtree
-        if (root.data < k1){
+        else if (root.data < k1){
             printInRange(root.left, k1, k2);
         }
         // Case 2 - Our range lies in left subtree
-        if (root.data > k2){
+        else{
             printInRange(root.right, k1, k2);
         }
     }
