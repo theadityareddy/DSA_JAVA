@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class l02objectsPriorityQueue {
-    static class Student implements Comparable<Student> {
+    static class Student implements Comparable<Student> { // for comparing objects IMPLEMEMNT COMPARABLE
         String name;
         int rank;
 
@@ -11,10 +11,11 @@ public class l02objectsPriorityQueue {
         }
 
         @Override
-        public int compareTo(Student s2){
-            return this.rank - s2.rank;
+        public int compareTo(Student s2){ // compareTo() -> in order to compare objects
+            return this.rank - s2.rank; // compares current object's rank with passed object's rank
         }
     }
+    
     public static void main(String[] args) {
         PriorityQueue<Student> pq = new PriorityQueue<>(); // Comparator.reverseOrder()
 
