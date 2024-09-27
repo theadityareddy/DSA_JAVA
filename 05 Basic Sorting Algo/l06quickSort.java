@@ -19,7 +19,6 @@ public class l06quickSort {
         }
 
         // my Pivot is last element
-
         int pidx = partition(arr, si, ei); // accepts the partition index
 
         quickSort(arr, si, pidx - 1); // for left
