@@ -1,10 +1,4 @@
 public class l02quickSort {
-    public static void main(String[] args) {
-        int arr[] = {6, 3, 9, 8, 4, 2};
-        quickSort(arr, 0, arr.length-1);
-        printArr(arr);
-    }
-
     private static void printArr(int arr[]){
         for (int i =0; i<arr.length; i++){
             System.out.print(arr[i] + " ");
@@ -19,7 +13,6 @@ public class l02quickSort {
         }
 
         //my Pivot is last element
-
         int pidx = partition(arr, si, ei); //accepts the partition index
 
         quickSort(arr, si, pidx-1); // for left
@@ -31,7 +24,8 @@ public class l02quickSort {
         int i = si-1; //makes space for elements smaller than pivot
 
         for (int j=si; j<ei; j++){
-            if (arr[j] < pivot){ // here pivot is a value not index... hence, no arr[pivot]
+            // here pivot is a value not index... hence, no arr[pivot]
+            if (arr[j] < pivot){ 
                 i++;
                 //swap
                 int temp = arr[j];
@@ -39,7 +33,7 @@ public class l02quickSort {
                 arr[i] = temp;
             }
         }
-        //to swap pivot to rt place
+        //to swap pivot to correct place
         i++;
         //swap
         int temp = arr[ei];
@@ -47,5 +41,11 @@ public class l02quickSort {
         arr[i] = temp;
 
         return i; // returns the partition index
+    }
+    
+    public static void main(String[] args) {
+        int arr[] = {6, 3, 9, 8, 4, 2};
+        quickSort(arr, 0, arr.length-1);
+        printArr(arr);
     }
 }

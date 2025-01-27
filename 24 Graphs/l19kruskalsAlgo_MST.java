@@ -62,14 +62,14 @@ public class l19kruskalsAlgo_MST {
         }
     }
 
-    public static void Kruskals(ArrayList<Edge> edges, int V) {
+    public static void Kruskals(ArrayList<Edge> edges, int V) { // TC : O(V + N log(N))
         initialise();
 
-        Collections.sort(edges);
+        Collections.sort(edges); // TC : O(N log(N))
         int mstCost = 0;
         int count = 0;
 
-        for (int i = 0; i < V - 1; i++) {
+        for (int i = 0; i < V - 1; i++) { // TC : O(V)
             Edge e = edges.get(i);
 
             int parA = find(e.src);
