@@ -1,29 +1,26 @@
 public class q01 {
-    public int divide(int dividend, int divisor) {
-        // Check if the result should be negative
-        int sign = (dividend < 0) ^ (divisor < 0) ? -1 : 1;
-
-        // Convert dividend and divisor to their absolute values
-        long absDividend = Math.abs((long) dividend);
-        long absDivisor = Math.abs((long) divisor);
-
-        long quotient = 0;
-
-        // Subtract the divisor from the dividend until the dividend is smaller than the divisor
-        while (absDividend >= absDivisor) {
-            absDividend -= absDivisor;
-            quotient++;
+    public int divide(int a, int b) {
+        if (b == 1) {
+            return a;
         }
-
-        // Apply the sign to the quotient
-        quotient = sign == -1 ? -quotient : quotient;
-
-        // Handle overflow
-        if (quotient < Integer.MIN_VALUE || quotient > Integer.MAX_VALUE) {
+        if (a == Integer.MIN_VALUE && b == -1) {
             return Integer.MAX_VALUE;
         }
-
-        return (int) quotient;
+        boolean sign = (a > 0 && b > 0) || (a < 0 && b < 0);
+        a = a > 0 ? -a : a;
+        b = b > 0 ? -b : b;
+        int ans = 0;
+        while (a <= b) {
+            int x = b;
+            int cnt = 1;
+            while (x >= (Integer.MIN_VALUE >> 1) && a <= (x << 1)) {
+                x <<= 1;
+                cnt <<= 1;
+            }
+            ans += cnt;
+            a -= x;
+        }
+        return sign ? ans : -ans;
     }
 
     public static void main(String[] args) {
